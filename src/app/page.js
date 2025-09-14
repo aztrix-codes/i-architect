@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 // Main Page Component
 export default function HomePage() {
@@ -124,25 +125,31 @@ export default function HomePage() {
             </div>
           </div>
           <div className="banner" style={{position: 'absolute', top: '5.5%', left: '2%', right: '2%', bottom: '5%', borderRadius: 50, overflow: 'hidden', color: 'white'}} >
-             <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2070&auto=format=fit-crop" alt="Stunning modern house exterior" style={{width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: 0}} />
-             <div style={{position: 'absolute', inset: 0, background: 'rgba(0, 0, 0, 0.4)', zIndex: 1}}></div>
-             <div className="banner-content-wrapper" style={{position: 'relative', zIndex: 2, padding: '60px', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
-                <div className="banner-content" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', width: '100%'}}>
-                    <div className="banner-text-main" style={{maxWidth: '50%'}}>
-                        <h2 className="banner-heading" style={{fontSize: '3.5rem', fontWeight: 'bold', lineHeight: '1.1', textShadow: '0 2px 4px rgba(0,0,0,0.5)'}}>
-                          Shaping Spaces, Building Dreams: Premier Interior Architecture
-                        </h2>
-                       <button className="banner-button" style={{marginTop: '2rem', background: 'white', color: 'black', padding: '12px 24px', borderRadius: '8px', border: 'none', fontSize: '1rem', fontWeight: '600', cursor: 'pointer'}}>
-                          Begin Your Design Journey
-                       </button>
-                    </div>
-                    <div className="banner-text-secondary" style={{maxWidth: '30%'}}>
-                        <p className="banner-description" style={{fontSize: '0.9rem', lineHeight: '1.6', textShadow: '0 1px 3px rgba(0,0,0,0.5)'}}>
-                          i-Architect simplifies the complex process of interior architecture for all, including homes, hotels, and luxury residences in Greece & Cyprus.
-                        </p>
-                    </div>
+            <Image
+                src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2070&auto=format=fit-crop"
+                alt="Stunning modern house exterior"
+                fill
+                style={{ objectFit: 'cover' }}
+                priority
+            />
+            <div style={{position: 'absolute', inset: 0, background: 'rgba(0, 0, 0, 0.4)', zIndex: 1}}></div>
+            <div className="banner-content-wrapper" style={{position: 'relative', zIndex: 2, padding: '60px', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
+              <div className="banner-content" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', width: '100%'}}>
+                <div className="banner-text-main" style={{maxWidth: '50%'}}>
+                  <h2 className="banner-heading" style={{fontSize: '3.5rem', fontWeight: 'bold', lineHeight: '1.1', textShadow: '0 2px 4px rgba(0,0,0,0.5)'}}>
+                    Shaping Spaces, Building Dreams: Premier Interior Architecture
+                  </h2>
+                  <button className="banner-button" style={{marginTop: '2rem', background: 'white', color: 'black', padding: '12px 24px', borderRadius: '8px', border: 'none', fontSize: '1rem', fontWeight: '600', cursor: 'pointer'}}>
+                    Begin Your Design Journey
+                  </button>
                 </div>
-             </div>
+                <div className="banner-text-secondary" style={{maxWidth: '30%'}}>
+                  <p className="banner-description" style={{fontSize: '0.9rem', lineHeight: '1.6', textShadow: '0 1px 3px rgba(0,0,0,0.5)'}}>
+                    i-Architect simplifies the complex process of interior architecture for all, including homes, hotels, and luxury residences in Greece & Cyprus.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -171,7 +178,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="who-we-are-image-circle" style={{ position: 'absolute', right: -100, top: -50, bottom: -50, width: '400px', height: 'calc(100% + 100px)', borderRadius: '50%', overflow: 'hidden', border: `10px solid ${currentTheme.cardBg}`, boxShadow: 'inset 0 0 15px rgba(0,0,0,0.1)' }}>
-                 <img  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format=fit-crop" alt="Team of architects in a modern office" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                 <Image src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format=fit-crop" alt="Team of architects in a modern office" fill style={{ objectFit: 'cover' }} />
               </div>
             </div>
           </div>
@@ -236,7 +243,9 @@ function SimplifyExperience({ theme, themes }) {
   
             return (
               <div key={item.step} className="process-card" style={{ position: 'absolute', width: '100%', height: '100%', transition, transform, zIndex, opacity, display: 'flex', background: currentTheme.cardBg, borderRadius: '32px', overflow: 'hidden', boxShadow: currentTheme.cardShadow }}>
-                <div className="process-image-content" style={{ flex: '0 0 45%' }}><img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
+                <div className="process-image-content" style={{ flex: '0 0 45%', position: 'relative' }}>
+                  <Image src={item.image} alt={item.title} fill style={{ objectFit: 'cover' }} />
+                </div>
                 <div className="process-text-content" style={{ flex: '0 0 55%', padding: '4rem 5rem' }}>
                   <div className="step-text-wrapper">
                     <h3 style={{ fontSize: '2.2rem', fontWeight: '600', color: currentTheme.text, marginBottom: '1.5rem' }}>{item.title}</h3>
@@ -260,7 +269,6 @@ function SimplifyExperience({ theme, themes }) {
     );
 }
 
-
 function WhyChooseUs({ theme, themes }) {
     const currentTheme = themes[theme];
     const [hoveredCard, setHoveredCard] = useState(null);
@@ -273,7 +281,7 @@ function WhyChooseUs({ theme, themes }) {
     return (
         <div className="section-padding" style={{ padding: '8rem 5% 8rem' }}>
              <h2 style={{ fontSize: '2.8rem', color: currentTheme.text, textAlign: 'center', marginBottom: '5rem' }}>
-               <span style={{fontWeight: '400'}}>Why</span> <span style={{fontWeight: '600'}}>Choose i-Architect</span>
+              <span style={{fontWeight: '400'}}>Why</span> <span style={{fontWeight: '600'}}>Choose i-Architect</span>
             </h2>
             <div className="why-choose-us-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridAutoRows: 'minmax(280px, auto)', gap: '32px' }}>
                 <div style={{ ...cardStyle, ...getHoverStyle(1), gridColumn: '1 / 2', gridRow: '1 / 2', background: currentTheme.cardBg, border: `1px solid ${currentTheme.cardBorder}`, borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} onMouseEnter={() => setHoveredCard(1)} onMouseLeave={() => setHoveredCard(null)}>
@@ -286,7 +294,7 @@ function WhyChooseUs({ theme, themes }) {
                     <h3 style={{ fontSize: '1.4rem', fontWeight: '600', color: currentTheme.text, marginBottom: '1rem', position: 'relative' }}>Visionary Design</h3><p style={{ fontSize: '1rem', lineHeight: '1.7', color: currentTheme.subtleText, maxWidth: '90%', position: 'relative' }}>We are committed to innovative and timeless design that reflects your unique personality and vision.</p>
                 </div>
                 <div style={{ ...cardStyle, ...getHoverStyle(3), gridColumn: '1 / 3', gridRow: '2 / 3', borderRadius: '24px', overflow: 'hidden', position: 'relative', color: 'white', display: 'flex', alignItems: 'flex-end' }} onMouseEnter={() => setHoveredCard(3)} onMouseLeave={() => setHoveredCard(null)}>
-                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1980&auto=format=fit-crop" alt="High-quality architectural materials" style={{width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: 0, transition: 'transform 0.4s ease-out', transform: hoveredCard === 3 ? 'scale(1.05)' : 'scale(1)'}} />
+                    <Image src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1980&auto=format=fit-crop" alt="High-quality architectural materials" fill style={{ objectFit: 'cover', transition: 'transform 0.4s ease-out', transform: hoveredCard === 3 ? 'scale(1.05)' : 'scale(1)'}} />
                     <div style={{position: 'absolute', inset: 0, background: currentTheme.imageOverlay, zIndex: 1}}></div>
                     <div style={{position: 'relative', zIndex: 2, padding: '40px'}}><h3 style={{ fontSize: '1.8rem', fontWeight: '600', marginBottom: '1rem' }}>Superior Craftsmanship</h3><p style={{ fontSize: '1rem', lineHeight: '1.7', maxWidth: '80%', color: 'rgba(255,255,255,0.9)' }}>Our partnerships with the best builders and artisans ensure the finest materials and quality control processes.</p></div>
                 </div>
@@ -403,3 +411,5 @@ const Footer = React.forwardRef(({ scrollToSection, refs }, ref) => {
         </footer>
     );
 });
+
+Footer.displayName = 'Footer';
