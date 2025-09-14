@@ -93,7 +93,7 @@ export default function HomePage() {
             .who-we-are-text-content { width: 100% !important; padding: 30px !important; }
             .who-we-are-image-circle { display: none !important; }
             
-            .process-container { height: 620px !important; }
+            .process-container { height: 500px !important; }
             .process-card { flex-direction: column !important; }
             .process-image-content { flex: 0 0 50% !important; }
             .process-text-content { flex: 1 1 auto !important; padding: 1.5rem 1.5rem 1rem !important; display: flex !important; flex-direction: column !important; }
