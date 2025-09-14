@@ -167,7 +167,7 @@ export default function HomePage() {
                   At i-Architect, we understand the challenges of creating exceptional spaces that blend elegance, quality, and architectural integrity.
                 </p>
                  <p style={{ fontSize: '1rem', lineHeight: '1.8', color: currentTheme.subtleText }}>
-                  As Greece's premier architectural design firm, we've made it our mission to simplify the design and build process, ensuring that every project is executed flawlessly from initial concept to final handover.
+                  {`As Greece's premier architectural design firm, we've made it our mission to simplify the design and build process, ensuring that every project is executed flawlessly from initial concept to final handover.`}
                 </p>
               </div>
               <div className="who-we-are-image-circle" style={{ position: 'absolute', right: -100, top: -50, bottom: -50, width: '400px', height: 'calc(100% + 100px)', borderRadius: '50%', overflow: 'hidden', border: `10px solid ${currentTheme.cardBg}`, boxShadow: 'inset 0 0 15px rgba(0,0,0,0.1)' }}>
